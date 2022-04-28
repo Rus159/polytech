@@ -29,5 +29,11 @@ def index():  # put application's code here
     return render_template('index.html', title='Колесо Фортуны', form=form)
 
 
+@app.route('/participants', methods=['GET'])
+def participants():
+    for participant in Participant.query.all():
+        print(participant.name, participant.surname)
+
+    return 'ok  '
 if __name__ == '__main__':
     app.run()
