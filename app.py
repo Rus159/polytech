@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 db.init_app(app)
-migrate = Migrate(app, db)
+migrate = Migrate(app, db, compare_type=True)
 
 
 @app.route('/', methods=['GET', 'POST'])

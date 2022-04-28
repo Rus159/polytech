@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Koło fortuny</title>
+    <title>Колесо фортуны</title>
 
     <style type="text/css">
         #wskaznik {
             width: 0.6%;
-            background: rgb(0, 0, 0);
+            background: rgb(3, 144, 252);
             height: 100px;
 
             position: absolute;
@@ -20,7 +20,7 @@
         #kolo {
             height: 600px;
             width: 600px;
-            background: url(/static/img/kolo-fortuny.png);
+            background: url(/static/img/wheel.png);
             background-size: contain;
             margin: 0 auto;
             margin-top: -50px;
@@ -32,17 +32,28 @@
             top: 100px;
             left: 0;
         }
+        #form {
+            position: absolute;
+            right: 300px;
+            top: 400px;
+        }
     </style>
 </head>
 
 <body>
     <div id="wskaznik"></div>
     <div id="kolo"></div>
-    <form action="" method="post" novalidate>
+    <form id="form" action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
+            {{ form.name.label }}
             {{ form.name }}
+        </p>
+        <p>
+            {{ form.surname.label }}
             {{ form.surname }}
+        </p>
+        <p>
             {% for error in form.name.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
